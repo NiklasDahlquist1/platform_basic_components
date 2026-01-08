@@ -1,0 +1,15 @@
+
+
+
+
+# Name of the domain bridge, used for node naming and logging
+name: test_domain_bridge
+from_domain: 0
+to_domain: 1
+topics:
+  chatter:
+    type: std_msgs/msg/String
+    remap: test
+    # bidirectional: True
+
+

@@ -1,0 +1,120 @@
+# /**:
+#     ros__parameters:
+        # log_level: 0 # 0 = log nothing?
+
+
+## Common values
+
+/*/heartbeat_node:
+    ros__parameters:
+        heartbeat_publish_rate: 20.0
+
+/*/batman_monitor:
+    ros__parameters:
+        network_information_publish_rate: 1.0
+        batman_interface_name: bat0
+
+/*/wifi_monitor:
+    ros__parameters:
+        network_information_publish_rate: 1.0
+        mesh_interface_name: mesh0
+
+/*/video_streaming_node:
+    ros__parameters:
+        topic: /camera/camera/color/image_raw
+        out_width: 480
+        out_height: 360
+        out_fps: 10
+        receiver: "172.30.30.100"
+        port: 5000
+        bitrate_kbps: 400
+        srt_latency_ms: 200
+        record_mode: "none"
+        # segment_time: 60
+        # segment_pattern: "realsense-%Y%m%d-%H%M%S.ts"
+
+# /*/video_receiver_node:
+#     ros__parameters:
+#         out_width: 480
+#         out_height: 360
+#         ip: "172.30.30.10"
+#         port: 5000
+#         out_topic: "received_video/image_raw"
+#         srt_latency_ms: 200
+
+
+
+
+
+
+# TEST
+
+/test/test_behavior_tree:
+    ros__parameters:
+        px4_namespace: "/px4_2"
+        at_point_tolerance_radius: 1.25
+
+
+/test/px4_controller:
+    ros__parameters:
+        px4_namespace: "/px4_2"
+
+
+
+
+
+# panda0
+
+/panda0/test_behavior_tree:
+    ros__parameters:
+        px4_namespace: ""
+        at_point_tolerance_radius: 1.25
+        flying_height: 10
+
+/panda0/px4_controller:
+    ros__parameters:
+        px4_namespace: ""
+        agent_id: "0"
+
+/panda0/heartbeat_node:
+    ros__parameters:
+        px4_namespace: ""
+        agent_name: "panda0"
+        agent_id: 0
+
+
+
+
+
+
+
+
+
+
+# panda1
+
+/panda1/test_behavior_tree:
+    ros__parameters:
+        px4_namespace: ""
+        at_point_tolerance_radius: 1.25
+        flying_height: 12
+
+/panda1/px4_controller:
+    ros__parameters:
+        px4_namespace: ""
+        agent_id: "1"
+
+/panda1/heartbeat_node:
+    ros__parameters:
+        px4_namespace: ""
+        agent_name: "panda1"
+        agent_id: 1
+
+
+
+
+
+
+
+
+
