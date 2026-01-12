@@ -74,7 +74,7 @@ def generate_launch_description():
         #    ('reference_pose', "/" + robot + '/reference_pose'),
         #    ('cmd_vel', "/" + robot + '/cmd_vel'),
         #],
-        #parameters=[get_package_share_directory('auction_server')+"/params.yaml"],
+        parameters=[get_package_share_directory('platform_components')+"/platform_params.yaml"],
     ))
 
 

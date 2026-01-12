@@ -56,8 +56,9 @@
 
 /auction_server/auction_server_node:
     ros__parameters:
-        auction_round_time: 0.5
+        auction_round_time: 1.0
         num_bids_end_auction: 3
+        tasks_allocated_per_agent: 1
 
 
 ############  ######  #############
@@ -118,6 +119,11 @@
         client_name: "panda0"
         client_id: 0
 
+/panda0/cost_calculator:
+    ros__parameters:
+        can_do_line_task: True
+        can_do_point_task: True
+
 /panda0/task_client:
     ros__parameters:
         px4_namespace: ""
@@ -164,6 +170,12 @@
         client_name: "panda1"
         client_id: 1
 
+/panda1/cost_calculator:
+    ros__parameters:
+        can_do_line_task: False
+        can_do_point_task: True
+
+
 /panda1/task_client:
     ros__parameters:
         px4_namespace: ""
@@ -207,6 +219,12 @@
     ros__parameters:
         client_name: "nuc1"
         client_id: 1
+
+/nuc1/cost_calculator:
+    ros__parameters:
+        can_do_line_task: False
+        can_do_point_task: True
+
 
 /nuc1/task_client:
     ros__parameters:
