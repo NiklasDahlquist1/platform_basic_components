@@ -16,8 +16,17 @@ import hashlib
 
 def generate_launch_description():
 
-    robot_name = "test" #os.getenv('USER')
-    
+    ld = LaunchDescription()
+    robot_name_arg = DeclareLaunchArgument(
+        "robot_name",
+        default_value="test_name",
+        description="Argument for custom robot name."
+    )
+    ld.add_entity(robot_name_arg)
+
+    # robot_name = "test" #os.getenv('USER')
+    robot_name = LaunchConfiguration("robot_name") #
+
 
 
     ld = LaunchDescription()
@@ -31,9 +40,9 @@ def generate_launch_description():
     
     ld.add_entity(Node(
         namespace=robot_name,
-        package='behaviors',
-        executable='behaviors_test_node',
-        # name='bt_test', # Dont use names since multiple nodes are launched from this process...
+        package='task_client',
+        executable='task_client_px4_node',
+        name='task_client',
         output='screen',
         remappings=[ # (old_topic , new_topic),
         ],
@@ -41,11 +50,11 @@ def generate_launch_description():
         parameters=[get_package_share_directory('platform_components')+"/platform_params.yaml"],
     ))
 
-    
+
     ld.add_entity(Node(
         namespace=robot_name,
         package='px4_position_control',
-        executable='px4_position_control_node',
+        executable='px4_position_control_goto_setpoint_node',
         name='px4_controller',
         output='screen',
         remappings=[ # (old_topic , new_topic),

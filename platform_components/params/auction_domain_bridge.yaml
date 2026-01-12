@@ -1,0 +1,160 @@
+
+
+
+
+# Name of the domain bridge, used for node naming and logging
+name: auction_domain_bridge
+from_domain: 0
+to_domain: 0
+topics:
+
+
+########### PANDA0 #############
+  /auction_server/add_bid:
+    from_domain: 10
+    # bidirectional: True
+    type: auction_msgs/msg/Bid
+
+  # /auction_server/add_tasks:
+  #   from_domain: 10
+  #   to_domain: 0
+  #   bidirectional: True
+  #   type: auction_msgs/msg/TasksArray
+
+  /auction_server/confirm_task_finished:
+    from_domain: 10
+    # bidirectional: True
+    type: auction_msgs/msg/TaskFinished
+
+
+
+
+
+  /auction_server/auction_available:
+    to_domain: 10
+    # bidirectional: True
+    type: auction_msgs/msg/Auction
+
+  /auction_server/task_allocated:
+    to_domain: 10
+    # bidirectional: True
+    type: auction_msgs/msg/TaskAllocated
+
+  /auction_server/not_allocated_to_task:
+    to_domain: 10
+    # bidirectional: True
+    type: std_msgs/msg/String
+
+# /auction_server/clicked_geopose
+# /auction_server/path_from_ui
+# /auction_server/point_from_ui
+
+
+
+
+
+
+########### PANDA1 #############
+  /auction_server/add_bid:
+    from_domain: 11
+    # bidirectional: True
+    type: auction_msgs/msg/Bid
+
+  # /auction_server/add_tasks:
+  #   from_domain: 11
+  #   to_domain: 0
+  #   bidirectional: True
+  #   type: auction_msgs/msg/TasksArray
+
+  /auction_server/confirm_task_finished:
+    from_domain: 11
+    # bidirectional: True
+    type: auction_msgs/msg/TaskFinished
+
+
+
+
+
+  /auction_server/auction_available:
+    to_domain: 11
+    # bidirectional: True
+    type: auction_msgs/msg/Auction
+
+  /auction_server/task_allocated:
+    to_domain: 11
+    # bidirectional: True
+    type: auction_msgs/msg/TaskAllocated
+
+  /auction_server/not_allocated_to_task:
+    to_domain: 11
+    # bidirectional: True
+    type: std_msgs/msg/String
+
+# /auction_server/clicked_geopose
+# /auction_server/path_from_ui
+# /auction_server/point_from_ui
+
+
+
+
+
+
+
+
+
+
+
+
+
+########### NUC1 #############
+  /auction_server/add_bid:
+    from_domain: 21
+    # bidirectional: True
+    type: auction_msgs/msg/Bid
+
+  # /auction_server/add_tasks:
+  #   from_domain: 21
+  #   to_domain: 0
+  #   bidirectional: True
+  #   type: auction_msgs/msg/TasksArray
+
+  /auction_server/confirm_task_finished:
+    from_domain: 21
+    # bidirectional: True
+    type: auction_msgs/msg/TaskFinished
+
+
+
+
+
+  /auction_server/auction_available:
+    to_domain: 21
+    # bidirectional: True
+    type: auction_msgs/msg/Auction
+
+  /auction_server/task_allocated:
+    to_domain: 21
+    # bidirectional: True
+    type: auction_msgs/msg/TaskAllocated
+
+  /auction_server/not_allocated_to_task:
+    to_domain: 21
+    # bidirectional: True
+    type: std_msgs/msg/String
+
+
+
+
+
+
+# /auction_server/clicked_geopose
+# /auction_server/path_from_ui
+# /auction_server/point_from_ui
+
+
+
+
+
+
+
+

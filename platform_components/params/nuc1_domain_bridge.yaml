@@ -3,52 +3,52 @@
 
 
 # Name of the domain bridge, used for node naming and logging
-name: panda0_domain_bridge
-from_domain: 10
+name: nuc1_domain_bridge
+from_domain: 21
 to_domain: 0
 topics:
   # /fmu/out/vehicle_global_position:
   #   type: px4_msgs/msg/VehicleGlobalPosition
-  #   remap: panda0/fmu/out/vehicle_global_position
+  #   remap: panda1/fmu/out/vehicle_global_position
   # /fmu/out/vehicle_land_detected:
   #   type: px4_msgs/msg/VehicleLandDetected
-  #   remap: panda0/fmu/out/vehicle_land_detected
-  /panda0/heartbeat_status:
-    from_domain: 10
+  #   remap: panda1/fmu/out/vehicle_land_detected
+  /panda1/heartbeat_status:
+    from_domain: 21
     to_domain: 0
     type: monitoring_interfaces/msg/HeartbeatStatus
 
   /target_reference_visualization:
-    from_domain: 10
+    from_domain: 21
     to_domain: 0
     type: monitoring_interfaces/msg/TargetReference
 
 
+
 # ########### Auction topics #############
 #   /auction_server/add_bid:
-#     from_domain: 10
+#     from_domain: 11
 #     to_domain: 0
-#     bidirectional: True
 #     type: auction_msgs/msg/Bid
 
-#   # /auction_server/add_tasks:
-#   #   from_domain: 10
-#   #   to_domain: 0
-#   #   bidirectional: True
-#   #   type: auction_msgs/msg/TasksArray
+#   /auction_server/add_tasks:
+#     from_domain: 11
+#     to_domain: 0
+#     type: auction_msgs/msg/TasksArray
 
+#   /auction_server/not_allocated_to_task:
+#     from_domain: 11
+#     to_domain: 0
+#     type: std_msgs/msg/String
 
-
-#   # /auction_server/task_allocated:
-#   #   from_domain: 10
-#   #   to_domain: 0
-#   #   bidirectional: True
-#   #   type: auction_msgs/msg/TaskAllocated
+#   /auction_server/task_allocated:
+#     from_domain: 11
+#     to_domain: 0
+#     type: auction_msgs/msg/TaskAllocated
 
 #   /auction_server/confirm_task_finished:
-#     from_domain: 10
+#     from_domain: 11
 #     to_domain: 0
-#     bidirectional: True
 #     type: auction_msgs/msg/TaskFinished
 
 
@@ -56,27 +56,18 @@ topics:
 
 #   /auction_server/auction_available:
 #       from_domain: 0
-#       to_domain: 10
-#       bidirectional: True
+#       to_domain: 11
 #       type: auction_msgs/msg/Auction
-
-#   /auction_server/not_allocated_to_task:
-#     from_domain: 0
-#     to_domain: 10
-#     bidirectional: True
-#     type: std_msgs/msg/String
 
 #   /auction_server/task_allocated:
 #       from_domain: 0
-#       to_domain: 10
-#       bidirectional: True
+#       to_domain: 11
 #       type: auction_msgs/msg/TaskAllocated
 
-#   # /auction_server/confirm_task_finished:
-#   #     from_domain: 0
-#   #     to_domain: 10
-#   #     bidirectional: True
-#   #     type: auction_msgs/msg/TaskFinished
+#   /auction_server/confirm_task_finished:
+#       from_domain: 0
+#       to_domain: 11
+#       type: auction_msgs/msg/TaskFinished
 
 
 
@@ -92,72 +83,65 @@ topics:
 
 
 
-
-
-
-
-
-
-
 # For simulation only
   /fmu/in/goto_setpoint:
-    from_domain: 10
+    from_domain: 21
     to_domain: 0
     type: px4_msgs/msg/GotoSetpoint
-    remap: /px4_1/fmu/in/goto_setpoint
+    remap: /px4_3/fmu/in/goto_setpoint
     
   /fmu/in/offboard_control_mode:
-    from_domain: 10
+    from_domain: 21
     to_domain: 0
     type: px4_msgs/msg/OffboardControlMode
-    remap: /px4_1/fmu/in/offboard_control_mode
+    remap: /px4_3/fmu/in/offboard_control_mode
 
   /fmu/in/vehicle_command:
-    from_domain: 10
+    from_domain: 21
     to_domain: 0
     type: px4_msgs/msg/VehicleCommand
-    remap: /px4_1/fmu/in/vehicle_command
+    remap: /px4_3/fmu/in/vehicle_command
 
-  /px4_1/fmu/out/manual_control_setpoint:
+  /px4_3/fmu/out/manual_control_setpoint:
     from_domain: 0
-    to_domain: 10
+    to_domain: 21
     type: px4_msgs/msg/ManualControlSetpoint
     remap: /fmu/out/manual_control_setpoint
 
-  /px4_1/fmu/out/vehicle_control_mode:
+  /px4_3/fmu/out/vehicle_control_mode:
     from_domain: 0
-    to_domain: 10
+    to_domain: 21
     type: px4_msgs/msg/VehicleControlMode
     remap: /fmu/out/vehicle_control_mode
 
-  /px4_1/fmu/out/vehicle_global_position:
+  /px4_3/fmu/out/vehicle_global_position:
     from_domain: 0
-    to_domain: 10
+    to_domain: 21
     type: px4_msgs/msg/VehicleGlobalPosition
     remap: /fmu/out/vehicle_global_position
 
-  /px4_1/fmu/out/vehicle_land_detected:
+  /px4_3/fmu/out/vehicle_land_detected:
     from_domain: 0
-    to_domain: 10
+    to_domain: 21
     type: px4_msgs/msg/VehicleLandDetected
     remap: /fmu/out/vehicle_land_detected
 
-  /px4_1/fmu/out/vehicle_local_position:
+  /px4_3/fmu/out/vehicle_local_position:
     from_domain: 0
-    to_domain: 10
+    to_domain: 21
     type: px4_msgs/msg/VehicleLocalPosition
     remap: /fmu/out/vehicle_local_position
 
-  /px4_1/fmu/out/vehicle_status_v1:
+  /px4_3/fmu/out/vehicle_status_v1:
     from_domain: 0
-    to_domain: 10
+    to_domain: 21
     type: px4_msgs/msg/VehicleStatus
     remap: /fmu/out/vehicle_status_v1
 
 
-# Testing!
-  /test_panel/clicked_geopose_1:
-    from_domain: 0
-    to_domain: 10
-    type: geographic_msgs/msg/GeoPose
 
+#Testing!
+  /test_panel/clicked_geopose_3:
+    from_domain: 0
+    to_domain: 21
+    type: geographic_msgs/msg/GeoPose

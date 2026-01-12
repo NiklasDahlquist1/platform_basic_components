@@ -14,10 +14,70 @@ topics:
   #   type: px4_msgs/msg/VehicleLandDetected
   #   remap: panda1/fmu/out/vehicle_land_detected
   /panda1/heartbeat_status:
+    from_domain: 11
+    to_domain: 0
     type: monitoring_interfaces/msg/HeartbeatStatus
 
   /target_reference_visualization:
+    from_domain: 11
+    to_domain: 0
     type: monitoring_interfaces/msg/TargetReference
+
+
+
+# ########### Auction topics #############
+#   /auction_server/add_bid:
+#     from_domain: 11
+#     to_domain: 0
+#     type: auction_msgs/msg/Bid
+
+#   /auction_server/add_tasks:
+#     from_domain: 11
+#     to_domain: 0
+#     type: auction_msgs/msg/TasksArray
+
+#   /auction_server/not_allocated_to_task:
+#     from_domain: 11
+#     to_domain: 0
+#     type: std_msgs/msg/String
+
+#   /auction_server/task_allocated:
+#     from_domain: 11
+#     to_domain: 0
+#     type: auction_msgs/msg/TaskAllocated
+
+#   /auction_server/confirm_task_finished:
+#     from_domain: 11
+#     to_domain: 0
+#     type: auction_msgs/msg/TaskFinished
+
+
+
+
+#   /auction_server/auction_available:
+#       from_domain: 0
+#       to_domain: 11
+#       type: auction_msgs/msg/Auction
+
+#   /auction_server/task_allocated:
+#       from_domain: 0
+#       to_domain: 11
+#       type: auction_msgs/msg/TaskAllocated
+
+#   /auction_server/confirm_task_finished:
+#       from_domain: 0
+#       to_domain: 11
+#       type: auction_msgs/msg/TaskFinished
+
+
+
+
+# # /auction_server/clicked_geopose
+# # /auction_server/path_from_ui
+# # /auction_server/point_from_ui
+
+
+
 
 
 

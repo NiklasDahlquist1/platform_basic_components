@@ -3,7 +3,11 @@
         # log_level: 0 # 0 = log nothing?
 
 
-## Common values
+
+
+
+
+############  Global parameters  #############
 
 /*/heartbeat_node:
     ros__parameters:
@@ -21,7 +25,9 @@
 
 /*/video_streaming_node:
     ros__parameters:
-        topic: /camera/camera/color/image_raw
+        # topic: /camera/camera/color/image_raw
+        topic: /camera/camera/color/image_raw # TODO: add annotated camera topic here!
+        # topic: /camera/camera/color/image_raw # TODO: add annotated camera topic here!
         out_width: 480
         out_height: 360
         out_fps: 10
@@ -44,6 +50,24 @@
 
 
 
+############  Auction_server parameters  #############
+
+
+
+/auction_server/auction_server_node:
+    ros__parameters:
+        auction_round_time: 0.5
+        num_bids_end_auction: 3
+
+
+############  ######  #############
+
+
+
+
+
+
+
 
 
 
@@ -60,21 +84,28 @@
         px4_namespace: "/px4_2"
 
 
+###
 
 
 
-# panda0
 
-/panda0/test_behavior_tree:
-    ros__parameters:
-        px4_namespace: ""
-        at_point_tolerance_radius: 1.25
-        flying_height: 10
+
+
+
+
+
+############  panda0  #############
+
+# /panda0/test_behavior_tree:
+#     ros__parameters:
+#         px4_namespace: ""
+#         at_point_tolerance_radius: 1.25
+#         flying_height: 10
 
 /panda0/px4_controller:
     ros__parameters:
         px4_namespace: ""
-        agent_id: "0"
+        agent_id: 0
 
 /panda0/heartbeat_node:
     ros__parameters:
@@ -82,22 +113,40 @@
         agent_name: "panda0"
         agent_id: 0
 
+/panda0/auction_client:
+    ros__parameters:
+        client_name: "panda0"
+        client_id: 0
 
-
-
-
-
-
-
-
-
-# panda1
-
-/panda1/test_behavior_tree:
+/panda0/task_client:
     ros__parameters:
         px4_namespace: ""
-        at_point_tolerance_radius: 1.25
-        flying_height: 12
+        use_groot: true
+        groot_port: 5557
+
+/panda0/px4_controller:
+    ros__parameters:
+        px4_namespace: ""
+        agent_id: 0
+
+
+
+############  ######  #############
+
+
+
+
+
+
+
+
+############  panda1  #############
+
+# /panda1/test_behavior_tree:
+#     ros__parameters:
+#         px4_namespace: ""
+#         at_point_tolerance_radius: 1.25
+#         flying_height: 12
 
 /panda1/px4_controller:
     ros__parameters:
@@ -109,6 +158,69 @@
         px4_namespace: ""
         agent_name: "panda1"
         agent_id: 1
+
+/panda1/auction_client:
+    ros__parameters:
+        client_name: "panda1"
+        client_id: 1
+
+/panda1/task_client:
+    ros__parameters:
+        px4_namespace: ""
+        use_groot: false
+        groot_port: 5557
+
+/panda1/px4_controller:
+    ros__parameters:
+        px4_namespace: ""
+        agent_id: 1
+
+############  ######  #############
+
+
+
+
+
+
+
+
+############  nuc1  #############
+
+# /nuc1/test_behavior_tree:
+#     ros__parameters:
+#         px4_namespace: ""
+#         at_point_tolerance_radius: 1.25
+#         flying_height: 12
+
+/nuc1/px4_controller:
+    ros__parameters:
+        px4_namespace: ""
+        agent_id: "1"
+
+/nuc1/heartbeat_node:
+    ros__parameters:
+        px4_namespace: ""
+        agent_name: "nuc1"
+        agent_id: 1
+
+/nuc1/auction_client:
+    ros__parameters:
+        client_name: "nuc1"
+        client_id: 1
+
+/nuc1/task_client:
+    ros__parameters:
+        px4_namespace: ""
+        use_groot: false
+        groot_port: 5557
+
+/nuc1/px4_controller:
+    ros__parameters:
+        px4_namespace: ""
+        agent_id: 1
+
+############  ######  #############
+
 
 
 
