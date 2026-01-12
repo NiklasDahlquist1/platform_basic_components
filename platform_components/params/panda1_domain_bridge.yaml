@@ -24,6 +24,15 @@ topics:
     type: monitoring_interfaces/msg/TargetReference
 
 
+  /yolo/detection_position:
+    from_domain: 11
+    to_domain: 0
+    # bidirectional: True
+    type: sensor_msgs/msg/NavSatFix
+
+
+
+
 
 # ########### Auction topics #############
 #   /auction_server/add_bid:
