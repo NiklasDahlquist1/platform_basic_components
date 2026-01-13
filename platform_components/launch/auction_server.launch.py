@@ -54,13 +54,13 @@ def generate_launch_description():
     ))
 
 
-    # ld.add_entity(Node(
-    #     package='auction_task_visualizer',
-    #     namespace=auction_namespace,
-    #     executable='auction_task_visualizer_node',
-    #     name='auction_task_visualizer',
-    #     output='screen',
-    # ))
+    ld.add_entity(Node(
+        package='auction_task_visualizer',
+        # namespace=auction_namespace,
+        executable='auction_task_visualizer_node',
+        name='auction_task_visualizer',
+        output='screen',
+    ))
 
 
 

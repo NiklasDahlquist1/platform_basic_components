@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-robot_name="panda1"
-agent_id="0"
+robot_name="nuc1"
+agent_id="2"
 
 
 

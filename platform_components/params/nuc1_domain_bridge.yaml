@@ -13,7 +13,7 @@ topics:
   # /fmu/out/vehicle_land_detected:
   #   type: px4_msgs/msg/VehicleLandDetected
   #   remap: panda1/fmu/out/vehicle_land_detected
-  /panda1/heartbeat_status:
+  /nuc1/heartbeat_status:
     from_domain: 21
     to_domain: 0
     type: monitoring_interfaces/msg/HeartbeatStatus
@@ -22,6 +22,39 @@ topics:
     from_domain: 21
     to_domain: 0
     type: monitoring_interfaces/msg/TargetReference
+
+  /nuc1/return_to_home_command:
+      from_domain: 0
+      to_domain: 21
+      # bidirectional: True
+      type: std_msgs/msg/Bool
+
+  /nuc1/emergency_land_command:
+      from_domain: 0
+      to_domain: 21
+      # bidirectional: True
+      type: std_msgs/msg/Bool
+
+
+
+
+
+########### Special role topics #############
+
+  /test_panel/commander_target:
+      from_domain: 0
+      to_domain: 21
+      # bidirectional: True
+      type: geographic_msgs/msg/GeoPose
+
+# /test_panel/commader_initiate:
+#     from_domain: 0
+#     to_domain: 21
+#     # bidirectional: True
+#     type: bt_msgs/msg/BtReturnStatus
+
+########### END #############
+
 
 
 
@@ -140,7 +173,7 @@ topics:
 
 
 
-#Testing!
+  #Testing!
   /test_panel/clicked_geopose_3:
     from_domain: 0
     to_domain: 21

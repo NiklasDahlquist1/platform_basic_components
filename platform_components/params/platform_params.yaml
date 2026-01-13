@@ -11,7 +11,7 @@
 
 /*/heartbeat_node:
     ros__parameters:
-        heartbeat_publish_rate: 20.0
+        heartbeat_publish_rate: 15.0
 
 /*/batman_monitor:
     ros__parameters:
@@ -33,7 +33,7 @@
         out_fps: 10
         receiver: "172.30.30.100"
         port: 5000
-        bitrate_kbps: 400
+        bitrate_kbps: 300
         srt_latency_ms: 200
         record_mode: "none"
         # segment_time: 60
@@ -56,7 +56,7 @@
 
 /auction_server/auction_server_node:
     ros__parameters:
-        auction_round_time: 1.0
+        auction_round_time: 1.5
         num_bids_end_auction: 3
         tasks_allocated_per_agent: 1
 
@@ -103,10 +103,6 @@
 #         at_point_tolerance_radius: 1.25
 #         flying_height: 10
 
-/panda0/px4_controller:
-    ros__parameters:
-        px4_namespace: ""
-        agent_id: 0
 
 /panda0/heartbeat_node:
     ros__parameters:
@@ -134,6 +130,9 @@
     ros__parameters:
         px4_namespace: ""
         agent_id: 0
+        max_horizontal_speed: 2.0
+        max_vertical_speed: 2.0
+
 
 
 
@@ -153,11 +152,6 @@
 #         px4_namespace: ""
 #         at_point_tolerance_radius: 1.25
 #         flying_height: 12
-
-/panda1/px4_controller:
-    ros__parameters:
-        px4_namespace: ""
-        agent_id: "1"
 
 /panda1/heartbeat_node:
     ros__parameters:
@@ -186,6 +180,9 @@
     ros__parameters:
         px4_namespace: ""
         agent_id: 1
+        max_horizontal_speed: 2.0
+        max_vertical_speed: 2.0
+
 
 ############  ######  #############
 
@@ -204,21 +201,17 @@
 #         at_point_tolerance_radius: 1.25
 #         flying_height: 12
 
-/nuc1/px4_controller:
-    ros__parameters:
-        px4_namespace: ""
-        agent_id: "1"
 
 /nuc1/heartbeat_node:
     ros__parameters:
         px4_namespace: ""
         agent_name: "nuc1"
-        agent_id: 1
+        agent_id: 2
 
 /nuc1/auction_client:
     ros__parameters:
         client_name: "nuc1"
-        client_id: 1
+        client_id: 2
 
 /nuc1/cost_calculator:
     ros__parameters:
@@ -235,7 +228,9 @@
 /nuc1/px4_controller:
     ros__parameters:
         px4_namespace: ""
-        agent_id: 1
+        agent_id: 2
+        max_horizontal_speed: 2.0
+        max_vertical_speed: 2.0
 
 ############  ######  #############
 
