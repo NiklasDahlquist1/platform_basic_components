@@ -44,8 +44,6 @@ send_command_to_all_panes_in_window 0 "cd ~/ws/ros_ws"
 
 
 tmux send-keys -t 0 "sleep 2 && ros2 launch platform_components auction_client.launch.py robot_name:=$robot_name" #C-m
-
-
 tmux send-keys -t 1 "ros2 launch platform_components bridge.launch.py robot_name:=$robot_name" #C-m
 tmux send-keys -t 2 "ros2 run auction_task_adder client_task_adder_node --ros-args -r __ns:=/$robot_name" #C-m
 tmux send-keys -t 3 "ros2 launch platform_components task_client.launch.py robot_name:=$robot_name" #C-m
@@ -84,6 +82,7 @@ tmux split-window -t 0 -h
 tmux split-window -t 1 -h
 
 
+send_command_to_all_panes_in_window 0 "cd ~/ws/ros_ws"
 
 
 

@@ -42,27 +42,19 @@ send_command_to_all_panes_in_window 0 "cd ~/ws/ros_ws"
 # This has been moved to ~/.bashrc for now
 
 
-
-tmux send-keys -t 0 "ros2 run task_client task_client_px4_node --ros-args -r __ns:=/$robot_name" #C-m
-# tmux send-keys -t 0 "ros2 run behaviors behaviors_test_node" #C-m
-tmux send-keys -t 1 "MicroXRCEAgent serial --dev /dev/px4_serial -b 921600" #C-m
-# tmux send-keys -t 3 "ros2 run px4_position_control px4_position_control_goto_setpoint_node" #C-m
-tmux send-keys -t 3 "ros2 run px4_position_control px4_position_control_goto_setpoint_node --ros-args -r __ns:=/$robot_name -p agent_id:=$agent_id" #C-m
-
-
-# tmux send-keys -t 4 "ros2 run heartbeat heartbeat_node --ros-args -r __ns:=/$robot_name" #C-m
-tmux send-keys -t 4 "ros2 launch platform_components monitoring.launch.py robot_name:=$robot_name" #C-m
+tmux send-keys -t 0 "sleep 2 && ros2 launch platform_components auction_client.launch.py robot_name:=$robot_name" #C-m
+tmux send-keys -t 1 "ros2 launch platform_components bridge.launch.py robot_name:=$robot_name" #C-m
+tmux send-keys -t 2 "ros2 run auction_task_adder client_task_adder_node --ros-args -r __ns:=/$robot_name" #C-m
+tmux send-keys -t 3 "ros2 launch platform_components task_client.launch.py robot_name:=$robot_name" #C-m
+tmux send-keys -t 4 "MicroXRCEAgent serial --dev /dev/px4_serial -b 921600" #C-m
+tmux send-keys -t 5 "ros2 launch platform_components monitoring.launch.py robot_name:=$robot_name" #C-m
 
 
-
-# tmux send-keys -t 5 "ros2 topic echo /fmu/out/vehicle_status_v1 --once | egrep "nav_state:|arming_state|failsafe|usb"' #C-m
-tmux send-keys -t 5 "ros2 launch platform_components bridge.launch.py robot_name:=$robot_name" #C-m
-# tmux send-keys -t 6 "ros2 topic echo /fmu/out/vehicle_gps_position --once | egrep "lat|long|satelites_used|heading" #C-m
 
 
 
 # Testing direct task assignments
-tmux send-keys -t 6 "ros2 run auction_task_adder auction_task_adder_node --ros-args -r __ns:=/test_panel -r client_task_allocated:=/$robot_name/client_task_allocated -r clicked_geopose:=clicked_geopose_2" #C-m
+# tmux send-keys -t 6 "ros2 run auction_task_adder auction_task_adder_node --ros-args -r __ns:=/test_panel -r client_task_allocated:=/$robot_name/client_task_allocated -r clicked_geopose:=clicked_geopose_2" #C-m
 
 
 
