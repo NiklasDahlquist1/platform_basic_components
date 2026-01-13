@@ -15,7 +15,7 @@ send_command_to_all_panes_in_window()
 }
 
 
-session="px4_testing"
+session="auction_server"
 
 tmux new-session -d -s $session
 
