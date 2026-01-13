@@ -71,23 +71,44 @@ tmux send-keys -t 1 "ros2 run realsense2_camera realsense2_camera_node" #C-m
 
 
 
+
+
+
+
+
+
 window=2
-tmux new-window -t $session:$window -n 'tmp_init_pub'
+tmux new-window -t $session:$window -n 'aux'
 tmux split-window -t 0 -v
+tmux split-window -t 0 -h
+tmux split-window -t 1 -h
 
 
-tmux send-keys -t 0 "export ROS_DOMAIN_ID=0" C-m
-tmux send-keys -t 0 "ros2 topic pub /clicked_geopose_TEST geographic_msgs/msg/GeoPose 'position:
-  latitude: 0.0
-  longitude: 0.0
-  altitude: 0.0
-orientation:
-  x: 0.0
-  y: 0.0
-  z: 0.0
-  w: 1.0
-'
-" #C-m
+send_command_to_all_panes_in_window 0 "cd ~/ws/ros_ws"
+
+
+
+
+
+
+
+# window=2
+# tmux new-window -t $session:$window -n 'tmp_init_pub'
+# tmux split-window -t 0 -v
+
+
+# tmux send-keys -t 0 "export ROS_DOMAIN_ID=0" C-m
+# tmux send-keys -t 0 "ros2 topic pub /clicked_geopose_TEST geographic_msgs/msg/GeoPose 'position:
+#   latitude: 0.0
+#   longitude: 0.0
+#   altitude: 0.0
+# orientation:
+#   x: 0.0
+#   y: 0.0
+#   z: 0.0
+#   w: 1.0
+# '
+# " #C-m
 
 
 
