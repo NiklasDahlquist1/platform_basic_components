@@ -45,7 +45,7 @@ send_command_to_all_panes_in_window 0 "export ROS_DOMAIN_ID=0"
 
 
 tmux send-keys -t 0 "ros2 launch platform_components auction_server.launch.py" #C-m
-tmux send-keys -t 1 "ros2 run domain_bridge domain_bridge /home/niklas/ws/ros_auction_ws/src/platform_basic_components/platform_components/params/auction_domain_bridge.yaml" #C-m
+tmux send-keys -t 1 "ros2 run domain_bridge domain_bridge /home/nuc1/ws/ros_auction_ws/src/platform_basic_components/platform_components/params/auction_domain_bridge.yaml" #C-m
 tmux send-keys -t 2 "ros2 run foxglove_bridge foxglove_bridge " #C-m
 tmux send-keys -t 3 "" #C-m
 tmux send-keys -t 4 "" #C-m
