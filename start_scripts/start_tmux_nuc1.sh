@@ -42,7 +42,7 @@ send_command_to_all_panes_in_window 0 "cd ~/ws/ros_ws"
 # This has been moved to ~/.bashrc for now
 
 
-tmux send-keys -t 0 "sleep 2 && ros2 launch platform_components auction_client.launch.py robot_name:=$robot_name" #C-m
+tmux send-keys -t 0 "sleep 3 && ros2 launch platform_components auction_client.launch.py robot_name:=$robot_name" #C-m
 tmux send-keys -t 1 "ros2 launch platform_components bridge.launch.py robot_name:=$robot_name" #C-m
 tmux send-keys -t 2 "ros2 run auction_task_adder client_task_adder_node --ros-args -r __ns:=/$robot_name" #C-m
 tmux send-keys -t 3 "ros2 launch platform_components task_client.launch.py robot_name:=$robot_name" #C-m
@@ -60,13 +60,18 @@ tmux send-keys -t 5 "ros2 launch platform_components monitoring.launch.py robot_
 
 
 window=1
-tmux new-window -t $session:$window -n 'aux'
+tmux new-window -t $session:$window -n 'bag'
 tmux split-window -t 0 -v
 
 
-tmux send-keys -t 0 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/camera/camera/color/image_raw     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single" #C-m
+
+tmux send-keys -t 0 "cd ~/ws/bags" C-m
+tmux send-keys -t 0 "ros2 bag record --all" #C-m
+
+
+# tmux send-keys -t 0 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/camera/camera/color/image_raw     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single -p record_path:=video_test_a" #C-m
 # tmux send-keys -t 0 'ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/camera/camera/color/image_raw     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300' #C-m
-tmux send-keys -t 1 "ros2 run realsense2_camera realsense2_camera_node" #C-m
+# tmux send-keys -t 1 "ros2 run realsense2_camera realsense2_camera_node" #C-m
 
 
 

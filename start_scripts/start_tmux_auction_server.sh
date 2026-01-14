@@ -49,7 +49,7 @@ tmux send-keys -t 1 "ros2 run domain_bridge domain_bridge /home/nuc1/ws/ros_ws/s
 tmux send-keys -t 2 "ros2 run foxglove_bridge foxglove_bridge " #C-m
 tmux send-keys -t 3 "" #C-m
 tmux send-keys -t 4 "" #C-m
-tmux send-keys -t 5 "ros2 run auction_task_adder auction_task_adder_node --ros-args -r __ns:=/test_panel" #C-m
+# tmux send-keys -t 5 "ros2 run auction_task_adder auction_task_adder_node --ros-args -r __ns:=/test_panel" #C-m
 tmux send-keys -t 6 "bmon" C-m
 
 

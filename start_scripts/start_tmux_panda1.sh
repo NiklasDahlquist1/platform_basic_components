@@ -42,7 +42,7 @@ send_command_to_all_panes_in_window 0 "cd ~/ws/ros_ws"
 # This has been moved to ~/.bashrc for now
 
 
-tmux send-keys -t 0 "sleep 2 && ros2 launch platform_components auction_client.launch.py robot_name:=$robot_name" #C-m
+tmux send-keys -t 0 "sleep 3 && ros2 launch platform_components auction_client.launch.py robot_name:=$robot_name" #C-m
 tmux send-keys -t 1 "ros2 launch platform_components bridge.launch.py robot_name:=$robot_name" #C-m
 tmux send-keys -t 2 "ros2 run auction_task_adder client_task_adder_node --ros-args -r __ns:=/$robot_name" #C-m
 tmux send-keys -t 3 "ros2 launch platform_components task_client.launch.py robot_name:=$robot_name" #C-m
@@ -63,12 +63,16 @@ tmux split-window -t 0 -v
 tmux split-window -t 0 -h
 tmux split-window -t 2 -h
 tmux split-window -t 1 -h
+# tmux split-window -t 3 -h
 
 
 tmux send-keys -t 0 "cd ~/ws/bags" C-m
-tmux send-keys -t 0 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/detector/frames     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single" #C-m
-# tmux send-keys -t 0 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/camera/camera/color/image_raw     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single" #C-m
-tmux send-keys -t 1 "ros2 run realsense2_camera realsense2_camera_node --ros-args -p rgb_camera.color_profile:=640x480x15 -p depth_module.depth_profile:=848x480x15" #C-m
+tmux send-keys -t 0 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/detector/frames     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single -p record_path:=video_detector" #C-m
+
+tmux send-keys -t 1 "cd ~/ws/bags" C-m
+tmux send-keys -t 1 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/camera/camera/color/image_raw     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single -p record_path:=video_raw" #C-m
+
+tmux send-keys -t 2 "ros2 run realsense2_camera realsense2_camera_node --ros-args -p rgb_camera.color_profile:=640x480x15 -p depth_module.depth_profile:=848x480x15" #C-m
 
 
 
@@ -76,8 +80,10 @@ tmux send-keys -t 3 "cd ~/Documents/yolo_test" C-m
 tmux send-keys -t 3 "source py312/bin/activate" C-m
 tmux send-keys -t 3 "python rosnode.py" #C-m
 
-tmux send-keys -t 4 "cd ~/ws/ros_ws/src/platform_basic_components/start_scripts" C-m
-tmux send-keys -t 4 "bash rosbag.sh" #C-m
+# tmux send-keys -t 4 "cd ~/ws/ros_ws/src/platform_basic_components/start_scripts" C-m
+tmux send-keys -t 4 "cd ~/ws/bags" C-m
+
+# tmux send-keys -t 4 "bash rosbag.sh" #C-m
 
 
 

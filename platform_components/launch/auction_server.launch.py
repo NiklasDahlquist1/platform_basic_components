@@ -47,9 +47,9 @@ def generate_launch_description():
         executable='auction_task_adder_node',
         name='auction_task_adder',
         output='screen',
-        #remappings=[ # (old_topic , new_topic),
-        #    ('output_telemetry', 'output_telemetry'),
-        #],
+        remappings=[ # (old_topic , new_topic),
+           ('added_mission_profile', '/test_panel/added_mission_profile'),
+        ],
         # parameters=[get_package_share_directory('platform_components')+"/platform_params.yaml"],
     ))
 

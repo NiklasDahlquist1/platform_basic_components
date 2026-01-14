@@ -56,7 +56,7 @@
 
 /auction_server/auction_server_node:
     ros__parameters:
-        auction_round_time: 1.5
+        auction_round_time: 5.2
         num_bids_end_auction: 3
         tasks_allocated_per_agent: 1
 
@@ -117,7 +117,7 @@
 
 /panda0/cost_calculator:
     ros__parameters:
-        can_do_line_task: True
+        can_do_line_task: False
         can_do_point_task: True
 
 /panda0/task_client:
@@ -166,7 +166,7 @@
 
 /panda1/cost_calculator:
     ros__parameters:
-        can_do_line_task: False
+        can_do_line_task: True
         can_do_point_task: True
 
 
