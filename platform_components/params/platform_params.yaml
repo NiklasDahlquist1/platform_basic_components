@@ -117,7 +117,7 @@
 
 /panda0/cost_calculator:
     ros__parameters:
-        can_do_line_task: False
+        can_do_line_task: True
         can_do_point_task: True
 
 /panda0/task_client:
@@ -166,7 +166,7 @@
 
 /panda1/cost_calculator:
     ros__parameters:
-        can_do_line_task: True
+        can_do_line_task: False
         can_do_point_task: True
 
 

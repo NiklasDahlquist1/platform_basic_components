@@ -42,11 +42,11 @@ topics:
 
 ########### Special role topics #############
 
-  /yolo/detection_position:
-    from_domain: 11
-    to_domain: 0
-    # bidirectional: True
-    type: sensor_msgs/msg/NavSatFix
+  # /yolo/detection_position:
+  #   from_domain: 11
+  #   to_domain: 0
+  #   # bidirectional: True
+  #   type: sensor_msgs/msg/NavSatFix
 
 ########### END #############
 
