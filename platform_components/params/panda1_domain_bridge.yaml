@@ -170,6 +170,11 @@ topics:
     remap: /fmu/out/vehicle_status_v1
 
 
+  /px4_2/fmu/out/vehicle_attitude:
+    from_domain: 0
+    to_domain: 10
+    type: px4_msgs/msg/VehicleAttitude
+    remap: /fmu/out/vehicle_attitude
 
 #Testing!
   /test_panel/clicked_geopose_2:
