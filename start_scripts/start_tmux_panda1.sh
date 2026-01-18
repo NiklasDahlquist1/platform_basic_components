@@ -70,7 +70,7 @@ tmux send-keys -t 0 "cd ~/ws/bags" C-m
 tmux send-keys -t 0 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/detector/frames     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single -p record_path:=video_detector" #C-m
 
 tmux send-keys -t 1 "cd ~/ws/bags" C-m
-tmux send-keys -t 1 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/camera/camera/color/image_raw     -p out_width:=480     -p out_height:=360     -p out_fps:=20.0     -p receiver:=127.0.0.1     -p port:=5000     -p bitrate_kbps:=2500    -p record_mode:=single -p record_path:=video_raw" #C-m
+tmux send-keys -t 1 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/image_raw     -p out_width:=480     -p out_height:=360     -p out_fps:=20.0     -p receiver:=172.30.30.100     -p port:=5010     -p bitrate_kbps:=300    -p record_mode:=single -p record_path:=video_raw" #C-m
 
 # tmux send-keys -t 2 "ros2 run realsense2_camera realsense2_camera_node --ros-args -p rgb_camera.color_profile:=640x480x15 -p depth_module.depth_profile:=848x480x15" #C-m
 tmux send-keys -t 2 "ros2 run usb_cam usb_cam_node_exe" #C-m
@@ -79,7 +79,7 @@ tmux send-keys -t 2 "ros2 run usb_cam usb_cam_node_exe" #C-m
 
 tmux send-keys -t 3 "cd ~/Documents/yolo_test" C-m
 tmux send-keys -t 3 "source py312/bin/activate" C-m
-tmux send-keys -t 3 "python rosnode.py --ros-args -r image_raw:=/oak/rgb/image_raw # or for oak_d, just leave image_raw for usb_cam" #C-m
+tmux send-keys -t 3 "python rosnode.py --ros-args -r image_raw:=/image_raw # for oak_d: image_raw:=/oak/rgb/image_raw, for usb_cam: image_raw:=/image_raw" #C-m
 
 # tmux send-keys -t 4 "cd ~/ws/ros_ws/src/platform_basic_components/start_scripts" C-m
 tmux send-keys -t 4 "cd ~/ws/bags" C-m
