@@ -69,7 +69,7 @@ tmux split-window -t 1 -h
 
 
 tmux send-keys -t 0 "cd ~/ws/bags" C-m
-tmux send-keys -t 0 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/detector/frames     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single -p record_path:=video_detector" #C-m
+tmux send-keys -t 0 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/yolo/frames     -p out_width:=480     -p out_height:=360     -p out_fps:=10.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single -p record_path:=video_yolo" #C-m
 
 tmux send-keys -t 1 "cd ~/ws/bags" C-m
 tmux send-keys -t 1 "ros2 run video_streaming video_streaming_node   --ros-args     -p topic:=/image_raw     -p out_width:=480     -p out_height:=360     -p out_fps:=20.0     -p receiver:=172.30.30.100     -p port:=5000     -p bitrate_kbps:=300    -p record_mode:=single -p record_path:=video_raw" #C-m
